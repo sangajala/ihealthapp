@@ -1,0 +1,144 @@
+﻿@model Sree_Health.Models.PrescriptionsViewModels
+
+@{
+    ViewBag.Title = "CreatePrescriptions";
+    Layout = "~/Views/Shared/_Layout_Doctor.cshtml";
+}
+
+
+<!-- Main content -->
+<div class="content-wrapper">
+    <!-- Page header -->
+    <div class="page-header page-header-light">
+        <div class="page-header-content header-elements-md-inline">
+            <div class="page-title d-flex">
+                <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Prescription</span> - Create new</h4>
+                <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+            </div>
+            <div class="header-elements d-none">
+                <div class="d-flex justify-content-center">
+                    <a href="#" class="btn btn-link btn-float text-default"><i class="icon-bars-alt text-primary"></i><span>Statistics</span></a>
+                    <a href="#" class="btn btn-link btn-float text-default"><i class="icon-calculator text-primary"></i> <span>Invoices</span></a>
+                    <a href="#" class="btn btn-link btn-float text-default"><i class="icon-calendar5 text-primary"></i> <span>Schedule</span></a>
+                </div>
+            </div>
+        </div>
+        <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+            <div class="d-flex">
+                <div class="breadcrumb">
+                    <a href="@Url.Action("Doctor", "Home")" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
+                    <a href="@Url.Action("Index_Doctor", "Appointments")" class="breadcrumb-item">Appointments</a>
+                    <span class="breadcrumb-item active">Create new Prescription</span>
+                </div>
+                <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+            </div>
+            <div class="header-elements d-none">
+                <div class="breadcrumb justify-content-center">
+                    <a href="#" class="breadcrumb-elements-item">
+                        <i class="icon-comment-discussion mr-2"></i>
+                        Support
+                    </a>
+                    <div class="breadcrumb-elements-item dropdown p-0">
+                        <a href="#" class="breadcrumb-elements-item dropdown-toggle" data-toggle="dropdown">
+                            <i class="icon-gear mr-2"></i>
+                            Settings
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a href="#" class="dropdown-item"><i class="icon-user-lock"></i> Account security</a>
+                            <a href="#" class="dropdown-item"><i class="icon-statistics"></i> Analytics</a>
+                            <a href="#" class="dropdown-item"><i class="icon-accessibility"></i> Accessibility</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item"><i class="icon-gear"></i> All settings</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /page header -->
+    <!-- Content area -->
+    <div class="content">
+        <!-- Horizontal form options -->
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Basic layout-->
+                <div class="card">
+                    <div class="card-header header-elements-inline">
+                        <h5 class="card-title">Create new Prescription</h5>
+                        <div class="header-elements">
+                            <div class="list-icons">
+                                <a class="list-icons-item" data-action="collapse"></a>
+                                <a class="list-icons-item" data-action="reload"></a>
+                                <a class="list-icons-item" data-action="remove"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        @*<form action="#">*@
+
+                        @using (Html.BeginForm("CreatePrescriptions", "Prescriptions", FormMethod.Post))
+                        {
+                            @Html.HiddenFor(m => m.AppointmentID, new { @id = "AppointmentID" })
+                            @Html.HiddenFor(m => m.DoctorEmail, new { @id = "DoctorEmail" })
+                            @Html.AntiForgeryToken()
+                            <div class="form-horizontal">
+                                @*<h4>DepartmentsViewModels</h4>*@
+
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                                <div class="form-group row">
+                                    @Html.LabelFor(model => model.Prescription, htmlAttributes: new { @class = "col-lg-3 col-form-label" })
+                                    <div class="col-lg-9">
+                                        @Html.EditorFor(model => model.Prescription, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Prescription, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "col-lg-3 col-form-label" })
+                                    <div class="col-lg-9">
+                                        <div class="checkbox">
+                                            @Html.EditorFor(model => model.Status)
+                                            @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="text-right">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <button type="submit" class="btn btn-primary">Submit form <i class="icon-paperplane ml-2"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                        @*</form>*@
+                    </div>
+                </div>
+                <!-- /basic layout -->
+            </div>
+        </div>
+        <!-- /vertical form options -->
+    </div>
+    <!-- /content area -->
+    <!-- Footer -->
+    <!-- /footer -->
+</div>
+<!-- /main content -->
+@section Styles
+{
+
+}
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryinputform")
+
+    <!-- Theme JS files -->
+    @*<script src="~/Content/global_assets/js/plugins/forms/selects/select2.min.js"></script>
+    <script src="~/Content/global_assets/js/plugins/forms/styling/uniform.min.js"></script>
+    <script src="~/Content/assets/js/app.js"></script>
+    <script src="~/Content/global_assets/js/demo_pages/form_layouts.js"></script>*@
+    <!-- /theme JS files -->
+
+}

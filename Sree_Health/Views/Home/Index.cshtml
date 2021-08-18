@@ -1,0 +1,105 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<!-- Page header -->
+<div class="page-header page-header-light">
+    <div class="page-header-content header-elements-md-inline">
+        <div class="page-title d-flex">
+            <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Home</span> - Dashboard</h4>
+            <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+        </div>
+        <div class="header-elements d-none">
+            <div class="d-flex justify-content-center">
+                <a href="#" class="btn btn-link btn-float text-default"><i class="icon-bars-alt text-primary"></i><span>Statistics</span></a>
+                <a href="#" class="btn btn-link btn-float text-default"><i class="icon-calculator text-primary"></i> <span>Invoices</span></a>
+                <a href="#" class="btn btn-link btn-float text-default"><i class="icon-calendar5 text-primary"></i> <span>Schedule</span></a>
+            </div>
+        </div>
+    </div>
+    <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+        <div class="d-flex">
+            <div class="breadcrumb">
+                <a href="@Url.Action("Index", "Home")" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
+                <span class="breadcrumb-item active">Dashboard</span>
+            </div>
+            <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+        </div>
+        <div class="header-elements d-none">
+            <div class="breadcrumb justify-content-center">
+                <a href="#" class="breadcrumb-elements-item">
+                    <i class="icon-comment-discussion mr-2"></i>
+                    Support
+                </a>
+                <div class="breadcrumb-elements-item dropdown p-0">
+                    <a href="#" class="breadcrumb-elements-item dropdown-toggle" data-toggle="dropdown">
+                        <i class="icon-gear mr-2"></i>
+                        Settings
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a href="#" class="dropdown-item"><i class="icon-user-lock"></i> Account security</a>
+                        <a href="#" class="dropdown-item"><i class="icon-statistics"></i> Analytics</a>
+                        <a href="#" class="dropdown-item"><i class="icon-accessibility"></i> Accessibility</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item"><i class="icon-gear"></i> All settings</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /page header -->
+<!-- Content area -->
+<div class="content">
+
+    <!-- Background events -->
+    <div class="card">
+        <div class="card-header header-elements-inline">
+            <h5 class="card-title">Doctor Appoinments</h5>
+            <div class="header-elements">
+                <div class="list-icons">
+                    <a class="list-icons-item" data-action="collapse"></a>
+                    <a class="list-icons-item" data-action="reload"></a>
+                    <a class="list-icons-item" data-action="remove"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <p class="mb-3">The appointments of all doctors are displayed here....</p>
+            <div class="fullcalendar-background-colors"></div>
+        </div>
+    </div>
+    <!-- /background events -->
+
+</div>
+<!-- /content area -->
+<!-- Footer -->
+<!-- /footer -->
+@section Styles
+{
+    @*@Styles.Render("~/Content/Mycssinputform")*@
+    @*<link href="../content/global_assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+        <link href="../content/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="../content/assets/css/core.min.css" rel="stylesheet" type="text/css">
+        <link href="../content/assets/css/components.min.css" rel="stylesheet" type="text/css">
+        <link href="../content/assets/css/colors.min.css" rel="stylesheet" type="text/css">*@
+
+
+}
+@section Scripts
+{
+    <!-- Theme JS files (Calender) -->
+    <script src="~/Content/global_assets/js/plugins/ui/fullcalendar/core/main.min.js"></script>
+    <script src="~/Content/global_assets/js/plugins/ui/fullcalendar/daygrid/main.min.js"></script>
+    <script src="~/Content/global_assets/js/plugins/ui/fullcalendar/timegrid/main.min.js"></script>
+    <script src="~/Content/global_assets/js/plugins/ui/fullcalendar/interaction/main.min.js"></script>
+    <script src="~/Content/assets/js/app.js"></script>
+    <script src="~/Content/global_assets/js/demo_pages/fullcalendar_styling.js"></script>
+    <!-- /theme JS files (Calender) -->
+
+    @*<script src="~/Content/select2/select2.min.js"></script>*@
+    @*@Scripts.Render("~/bundles/jqueryval")*@
+    @*@Scripts.Render("~/bundles/jqueryinputform")*@
+}
+
